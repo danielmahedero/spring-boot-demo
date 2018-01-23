@@ -1,5 +1,7 @@
 package com.concretepage.repository.integration.test;
 
+import static org.junit.Assert.*;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +32,9 @@ public class DressCategoryRepositoryIntegrationTest {
 		DressCategory categoryA = new DressCategory("Short Dress");
 		
 		Set<Dress> dressesA = new HashSet<Dress>() {
-			
+			/**
+			 * 
+			 */
 			private static final long serialVersionUID = 1L;
 			
 			{
@@ -42,6 +46,34 @@ public class DressCategoryRepositoryIntegrationTest {
 		
 		categoryA.setDresses(dressesA);
 		
+		DressCategory categoryB = new DressCategory("Long Dress");
+		Set<Dress> dressedB = new HashSet<Dress>(){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			{
+				add(new Dress("Dress b1", categoryB));
+				add(new Dress("Dress b2", categoryB));
+				add(new Dress("Dress b3", categoryB));
+			}
+		};
+		
+		categoryB.setDresses(dressedB);
+		
+		dressCategoryRepository.save(new HashSet<DressCategory>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+			{
+				add(categoryA);
+				add(categoryB);
+			}
+		});
+		
+		listDressCategory = dressCategoryRepository.findAll();
+		assertTrue(listDressCategory.size() == 2 + size);
 	}
 	
 

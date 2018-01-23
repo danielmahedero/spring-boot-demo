@@ -14,6 +14,9 @@ SET time_zone = "+00:00";
 -- Base de datos: `concretepage`
 --
 
+CREATE DATABASE concretepage;
+USE concretepage;
+
 -- --------------------------------------------------------
 
 --
