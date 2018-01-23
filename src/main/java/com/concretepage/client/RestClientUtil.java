@@ -102,7 +102,7 @@ public class RestClientUtil {
 		RestClientUtil util = new RestClientUtil();
 		util.getArticleByIdDemo();
 		util.getAllArticlesDemo();
-		util.addArticleDemo();
+		//util.addArticleDemo();
 		util.updateArticleDemo();
 		util.deleteArticleDemo();
 
